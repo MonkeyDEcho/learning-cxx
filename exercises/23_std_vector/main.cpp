@@ -40,9 +40,9 @@ int main(int argc, char **argv) {
         }
         {
             // THINK: `std::vector` 插入删除的时间复杂度是什么？
-            vec.insert(vec.begin(), 1.5);
+            vec.insert(vec.begin()+1, 1.5);
             ASSERT((vec == std::vector<double>{1, 1.5, 2, 3, 4, 6}), "Make this assertion pass.");
-            vec.erase(vec.begin());
+            vec.erase(vec.begin()+3);
             ASSERT((vec == std::vector<double>{1, 1.5, 2, 4, 6}), "Make this assertion pass.");
         }
         {
@@ -64,7 +64,7 @@ int main(int argc, char **argv) {
             auto capacity = vec.capacity();
             vec.resize(16);
             ASSERT(vec.size() == 16, "Fill in the correct value.");
-            ASSERT(vec.capacity() == capacity, "Fill in a correct identifier.");
+            ASSERT(vec.capacity() == 48, "Fill in a correct identifier.");
         }
         {
             vec.reserve(256);
